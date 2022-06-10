@@ -12,6 +12,7 @@ interface HomeProps {
 }
 
 export default function Home({product} : HomeProps) {
+  console.log('Home function product: ',product);
   return (
     <>
       <Head>

@@ -7,7 +7,6 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import { redirect } from "next/dist/server/api-utils";
 
 interface PostPreviewProps {
     post: {
@@ -22,8 +21,10 @@ export default function PostPreview({ post }:PostPreviewProps){
     const session = useSession()
     const router = useRouter()
 
+    console.log('Preview slug - session: ',session);
+
     useEffect(() => {
-        if(session?.data.activeSubscription){
+        if(session.data?.activeSubscription){
             router.push(`/posts/${post.slug}`)
         }
     })
